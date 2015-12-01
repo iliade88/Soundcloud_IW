@@ -1,0 +1,17 @@
+Titulo
+
+Introduccion (1 parrafo sobre que va el proyecto)
+
+Wireframes y mockups
+Diagramas
+Descripcion
+	Tecnologias (que hemos usado)
+	Arquitectura (nos inventamos una arquitectura hardware)
+
+Detalles de implementacion (Comentar los módulos complicados y/o cosas que hemnos implemtado)
+
+Problemas encontrado y su solucion (cual era el problema, donde hemos buscado la solucion, que era... Tambien usar un CVS)
+
+Mejoras y ampliaciones
+
+Referencias
