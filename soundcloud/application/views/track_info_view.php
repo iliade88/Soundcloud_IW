@@ -9,7 +9,7 @@
 <body>
 
 <main>
-	<h1>Track Info</h1>
+	<h1>Group Info</h1>
 	<?php 
 		$res = $track->row(); 
 	?>
@@ -71,14 +71,17 @@
 	</table>
 
 	<table width="100%">
-		<th width="10%" >Minute</th>
-		<th width="90%">Comment</th>
+		<th width="15%" >Minute</th>
+		<th width="15%" >Author</th>
+		<th width="70%">Comment</th>
 		<?php
 			foreach($comments->result() as $row)
 			{
 				echo '<tr>';
 
 				echo "<td> $row->Time </td>";
+
+				echo "<td> $row->User_Name </td>";
 
 				echo "<td> $row->Comentario </td>";
 

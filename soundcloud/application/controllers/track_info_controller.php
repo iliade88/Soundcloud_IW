@@ -26,6 +26,6 @@ class Track_info_controller extends CI_Controller {
 
 	public function get_comments($oid)
 	{
-		return $this->db->query("SELECT * FROM timeline WHERE oid_track = $oid");
+		return $this->db->query("SELECT Time, User_Name, Comentario FROM timeline JOIN User ON User.OID = Timeline.User WHERE Track = $oid");
 	}
 }

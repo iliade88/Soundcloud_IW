@@ -14,12 +14,18 @@ class Playlist_info_controller extends CI_Controller {
 	public function index()
 	{
 		$data['oid'] = $_GET['oid'];
-		$output['track'] = $this->get_track_info($data['oid']);
-		$this->load->view('track_info_view', $output);
+		$output['playlist'] = $this->get_playlist_info($data['oid']);
+		$output['tracks'] = $this->get_tracks($data['oid']);
+		$this->load->view('playlist_info_view', $output);
 	}
 
-	public function get_track_info($oid)
+	public function get_playlist_info($oid)
 	{
-		return $this->db->query("SELECT * FROM track WHERE OID = $oid");
+		return $this->db->query("SELECT * FROM playlist WHERE OID = $oid");
+	}
+
+	public function get_tracks($oid)
+	{
+		return $this->db->query("SELECT track.Name track_name, track.Top_Category track_category FROM track JOIN playlist_tracks ON track.OID = playlist_tracks.OID_Track WHERE playlist_tracks.OID_Playlist = 1");
 	}
 }

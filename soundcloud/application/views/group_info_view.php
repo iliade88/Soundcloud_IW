@@ -9,9 +9,9 @@
 <body>
 
 <main>
-	<h1>Playlist Info</h1>
+	<h1>Group Info</h1>
 	<?php 
-		$res = $playlist->row(); 
+		$res = $group->row(); 
 	?>
 	<table border="1">
 		<tr>
@@ -20,22 +20,10 @@
 				echo $res->Name;
 			?></td>
 		</tr>
-		<tr>
-			<td> Followers </td>
-			<td><?php
-				echo $res->N_Followers;
-			?></td>
-		</tr>
-		<tr>
-			<td> Tracks </td>
-			<td><?php
-				echo $res->N_Tracks;
-			?></td>
-		</tr>
 	</table>
 	<table width="50%">
-	<th width="50%" >Name</th>
-	<th width="50%" >Category</th>
+		<th width="50%" >Name</th>
+		<th width="50%">Category</th>
 		<?php
 			foreach($tracks->result() as $row)
 			{
