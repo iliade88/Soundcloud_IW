@@ -1,0 +1,20 @@
+PUBLIC:
+  - Buscador de canciones
+  - Buscador de Playlist
+  - Buscador de Grupos
+  - Buscador de Usuarios
+
+  - Info cancion
+  - Info playlist
+  - Info grupo
+  - Info usuario
+
+PRIVATE:
+  - Comentar cancion timeline
+  - Crear Playlist
+  - Crear Grupos
+  - Unirse al Grupo
+
+
+- CRUD cancion
+- CRUD categorias
