@@ -1,20 +1,26 @@
 PUBLIC:
-  - Buscador de canciones
-  - Buscador de Playlist
-  - Buscador de Grupos
-  - Buscador de Usuarios
+  - Buscador de canciones <DONE>
+  - Buscador de Playlist <DONE>
+  - Buscador de Grupos <DONE>
+  - Buscador de Usuarios <DONE>
 
-  - Info cancion
-  - Info playlist
+  - Info cancion (con comentarios timeline) <DONE> 
+  - Info playlist 
   - Info grupo
-  - Info usuario
+  - Info usuario  <DONE>
 
 PRIVATE:
   - Comentar cancion timeline
   - Crear Playlist
   - Crear Grupos
-  - Unirse al Grupo
+  - Unirse al Grupo (Se hará con un botón en la info del grupo)
+  - Añadir canciones a playlist y grupos (WTF COMO LO HACEMOS D:)
+
+- CRUD cancion <DONE>
+- CRUD categorias <DONE>
 
 
-- CRUD cancion
-- CRUD categorias
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+- Encriptar contraseñas
