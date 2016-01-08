@@ -22,7 +22,7 @@ function buscar(){
 function buscarTrack(){
   valor = $("#buscar").val();
   $.ajax({
-    url: "http://localhost/soundcloud/index.php/search/buscarTrack",
+    url: "/soundcloud/index.php/search/buscarTrack",
     type: "POST",
     data:{buscar: valor},
     success:function(respuesta){
@@ -57,14 +57,14 @@ function buscarTrack(){
 function buscarPlaylist(){
   valor = $("#buscar").val();
   $.ajax({
-    url: "http://localhost/soundcloud/index.php/search/buscarPlaylist",
+    url: "/soundcloud/index.php/search/buscarPlaylist",
     type: "POST",
     data:{buscar: valor},
     success:function(respuesta){
       var resultados = eval(respuesta);
       html = "<h3>Playlists";
       if(resultados.length>0){
-        html+="</h3><table class=\"table-striped\"><thead><tr><th>Name</th><th>Image</th><th>Tracks</th>th>Followers</th></tr></thead><tbody>";
+        html+="</h3><table class=\"table-striped\"><thead><tr><th>Name</th><th>Image</th><th>Tracks</th><th>Followers</th></tr></thead><tbody>";
         for (var i = 0; i < resultados.length; i++) {
           html += "<tr>";
           html += "<td><a href='playlist_info_controller?oid="+ resultados[i].OID + "'></a>"+resultados[i].Name+"</td>";
@@ -89,7 +89,7 @@ function buscarPlaylist(){
 function buscarGroups(){
   valor = $("#buscar").val();
   $.ajax({
-    url: "http://localhost/soundcloud/index.php/search/buscarGroup",
+    url: "/soundcloud/index.php/search/buscarGroup",
     type: "POST",
     data:{buscar: valor},
     success:function(respuesta){
@@ -118,7 +118,7 @@ function buscarGroups(){
 function buscarUsers(){
   valor = $("#buscar").val();
   $.ajax({
-    url: "http://localhost/soundcloud/index.php/search/buscarUsers",
+    url: "/soundcloud/index.php/search/buscarUsers",
     type: "POST",
     data:{buscar: valor},
     success:function(respuesta){

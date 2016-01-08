@@ -4,14 +4,14 @@
 	<meta charset="utf-8">
 	<title>Hola mundo</title>
 
-	
+
 </head>
 <body>
 
 <main>
-	<h1>Group Info</h1>
-	<?php 
-		$res = $track->row(); 
+	<h1>Track Info</h1>
+	<?php
+		$res = $track->row();
 	?>
 	<table border="1">
 		<tr>
