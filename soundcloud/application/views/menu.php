@@ -18,6 +18,7 @@
           {?>
           <?php echo ($this->session->userdata("username")); ?>
             <li><a href="/soundcloud/index.php/login">Logout</a></li>
+            <li><a href="/soundcloud/index.php/user_info_controller?oid=<?php echo ($this->session->userdata('OID')); ?>"><?php echo ($this->session->userdata("username")); ?></a></li>
             <?php
             }
           else

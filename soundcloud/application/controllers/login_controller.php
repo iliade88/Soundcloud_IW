@@ -21,8 +21,12 @@ class Login_controller extends CI_Controller {
   	$valid = $this->verifyLogin($username, $pass);
 	if($valid)
 	{
+
+    $query = $this->db->query("SELECT OID FROM user WHERE User_Name = '$username'");
+    $results=$query->row();
+    $this->session->set_userdata('OID', $results->OID);
 		$name = $this->input->post('username');
-		echo "Bienvenido $name";
+		echo "Bienvenido $name $results->OID";
 		$this->session->set_userdata('username', $name);
 		$this->load->view('home_view');
 	}else{
