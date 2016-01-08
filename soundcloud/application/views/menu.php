@@ -1,11 +1,19 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <!-- Botón para mostrar menú en dispositivos móviles -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menumov">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/soundcloud/">Soundcloud</a>
+  </div>
+  <!-- Enlaces del menú -->
+  <div class="collapse navbar-collapse" id="menumov">
     <ul class="nav navbar-nav">
-      <li class="topnav-icons fa fa-home w3-left"><a href="/soundcloud/">Home <span class="sr-only">(current)</span></a></li>
       <li><a href="/soundcloud/index.php/search">Search</a></li>
-
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
     </ul>
-  </div><!-- /.navbar-collapse -->
+  </div>
+</div>
 </nav>
