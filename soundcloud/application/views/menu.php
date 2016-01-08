@@ -13,7 +13,26 @@
   <div class="collapse navbar-collapse" id="menumov">
     <ul class="nav navbar-nav">
       <li><a href="/soundcloud/index.php/search">Search</a></li>
+      <?php
+          if($this->session->userdata("username"))
+          {?>
+          <?php echo ($this->session->userdata("username")); ?>
+            <li><a href="/soundcloud/index.php/login">Logout</a></li>
+            <?php
+            }
+          else
+            {
+              ?>
+                <li><a href="/soundcloud/index.php/login">Login</a></li>
+              <?php 
+            } 
+              ?>
+      
+
+
     </ul>
   </div>
 </div>
 </nav>
+
+    
