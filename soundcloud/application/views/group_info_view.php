@@ -37,6 +37,24 @@
 			}
 		?>
 	</table>
+	<?php 
+		if($this->session->userdata('username')) 
+		{
+			$username = $this->session->userdata('username');
+    		$query = $this->db->query("SELECT * FROM user_group WHERE OID_Group = " . $res->OID . " AND Name = '$username'");
+			if($query->num_rows() > 0)
+			{
+				echo 'Usted ya está unido a este grupo, para salir pulse ';
+				echo "<a href='/soundcloud/index.php/group_info_controller/del_user_from_group/" . $res->OID . "' > aqui</a>";
+	
+			}else
+			{
+				echo 'No está unido a este grupo, unase ';
+				echo "<a href='/soundcloud/index.php/group_info_controller/add_user_to_group/" . $res->OID . "' > aqui</a>";
+			}
+		}
+
+	?>
 </main>
 
 </body>
