@@ -3,11 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>Hola mundo</title>
-
-
+	<?php require_once('requires.php'); ?>
 </head>
 <body>
-
+<?php require_once('menu.php'); ?>
 <main>
 	<h1>Track Info</h1>
 	<?php
@@ -29,7 +28,12 @@
 		<tr>
 			<td> Length </td>
 			<td><?php
-				echo $res->Length;
+
+				//echo $res->Length; 
+				$time=$res->Length;
+				$minutos_song=floor ($time/60);
+				$sec_song=$time-($minutos_song*60);
+				echo "$minutos_song:$sec_song";
 			?></td>
 		</tr>
 		<tr>
@@ -38,12 +42,7 @@
 				echo $res->Uploaded;
 			?></td>
 		</tr>
-		<tr>
-			<td> Listened </td>
-			<td><?php
-				echo $res->Listened;
-			?></td>
-		</tr>
+		
 		<tr>
 			<td> Category </td>
 			<td><?php
@@ -81,15 +80,52 @@
 
 				echo "<td> $row->Time </td>";
 
+				$time=$row->Time;
+				$minutos=floor ($time/60);
+				$sec=$time-($minutos*60);
+				echo "<td>$minutos:$sec</td>";
+
+
+
 				echo "<td> $row->User_Name </td>";
 
 				echo "<td> $row->Comentario </td>";
 
 				echo '</tr>';
+
 			}
+
 		?>
 	</table>
 </main>
+<form class="form-inline" action "/soundcloud/index.php/track/write_comment" method="POST"> 
+<fieldset>
+<legend> Write a comment: </legend> 
+<div class="row">
+	<div class="form-group">
+	<label for="minute"> Minute</label>
+	<select class="form-control" id="minute">
+		<?php
+		for ($i=0; $i <=$minutos_song; $i++) { 
+			echo "<option>$i</option>";
+		}
+		?>
+	</select>
+	<select class="form-control" id="sec">
+		<?php
+		for ($i=0; $i <=$sec_song; $i++) { 
+			echo "<option>$i</option>";
+		}
+		?>
+	</select>
+	</div>
+</div>
+	<br>
+	<input type= "hidden" name="track" value="<?php echo $res->OID ?>"> 
+	<textarea class="form-controll" id="comment" name="comment"> </textarea> <br>
+	<input type= "submit" class= "btn-primary" value ="Send"> 
+</fieldset>
+</form>
 
 </body>
 </html>

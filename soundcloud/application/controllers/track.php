@@ -10,6 +10,7 @@ class Track extends CI_Controller {
 		$this->load->helper('url');
 
 		$this->load->library('grocery_CRUD');
+		$this->load->model('Track');
 	}
 
   public function index()
@@ -24,5 +25,24 @@ class Track extends CI_Controller {
     $output = $this->grocery_crud->render();
 		$this->load->view('crud_view.php',$output);
 	}
+	public function write_comment()
+	{
+			$minute=$this->input->post("minute");
+			$sec=$this->input->post("sec");
+			$comment=$this->input->post("comment");
+			$time=$minute.":".$sec;
+			$track=$this->input->post("track");
 
+			$data=array(
+					"Comentario"=>$comment,
+					"Time"=>$time,
+					"user"=>$this->session->userdata ("username"), 
+					"Track"=>$track
+					);
+			$result=$this->track->db->insert('Timeline',$data);
+			print_r($result);
+		$this->load->view('track_info_view?OID='.$track);
+
+
+	}
 }

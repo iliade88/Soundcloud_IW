@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="utf-8" />
-
+<?php require_once('requires.php'); ?>
 <?php
 foreach($css_files as $file): ?>
     <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
@@ -31,6 +31,7 @@ a:hover
 </style>
 </head>
 <body>
+    <?php require_once('menu.php'); ?>
 <!-- Beginning header -->
     <div>
 
