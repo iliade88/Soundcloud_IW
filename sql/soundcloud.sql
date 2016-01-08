@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Gen 05, 2016 alle 15:57
+-- Generation Time: Gen 08, 2016 alle 11:40
 -- Versione del server: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -59,7 +59,15 @@ INSERT INTO `category` (`OID`, `Name`) VALUES
 CREATE TABLE IF NOT EXISTS `group` (
 `OID` int(11) NOT NULL,
   `Group_Name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dump dei dati per la tabella `group`
+--
+
+INSERT INTO `group` (`OID`, `Group_Name`) VALUES
+(1, 'Pop fan club'),
+(2, 'Rock fan club');
 
 -- --------------------------------------------------------
 
@@ -96,7 +104,15 @@ CREATE TABLE IF NOT EXISTS `playlist` (
   `N_Followers` int(11) NOT NULL,
   `Image` blob NOT NULL,
   `N_Tracks` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dump dei dati per la tabella `playlist`
+--
+
+INSERT INTO `playlist` (`OID`, `Name`, `N_Followers`, `Image`, `N_Tracks`) VALUES
+(1, 'Pop songs', 0, '', 0),
+(2, 'Sogns relax', 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -108,6 +124,17 @@ CREATE TABLE IF NOT EXISTS `playlist_tracks` (
   `OID_Playlist` int(11) NOT NULL,
   `OID_Track` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `playlist_tracks`
+--
+
+INSERT INTO `playlist_tracks` (`OID_Playlist`, `OID_Track`) VALUES
+(1, 3),
+(1, 8),
+(1, 17),
+(1, 18),
+(1, 21);
 
 -- --------------------------------------------------------
 
@@ -204,7 +231,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `N_Following` int(11) NOT NULL,
   `N_Tracks` int(11) NOT NULL,
   `Image` blob NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dump dei dati per la tabella `user`
@@ -234,7 +261,8 @@ INSERT INTO `user` (`OID`, `User_Name`, `Password`, `Full_Name`, `Date_Of_Birth`
 (21, 'Steve Aoki', 'AOKIDJ', 'Stepehn Ray Aoking', '1999-12-18', 'steve.aoki@bookings.com', 'Miami', 'male', 0, 0, 0, ''),
 (22, 'The Weeknd', 'weeknd2015', 'Delia Smiths', '1990-12-30', 'theweeknd@hotmail.com', 'Boston', 'female', 0, 0, 0, ''),
 (23, 'Yoko Ono', 'yokoono1949', 'Yoko Ono', '1949-11-23', 'yoko.ono@mngmt.com', 'New York', 'female', 0, 0, 0, ''),
-(24, 'Tokimonsta', 'tokiwoki', 'Irina Ellington', '1990-10-23', 'tokibookings@mngmt.com', 'San Francisco', 'female', 0, 0, 0, '');
+(24, 'Tokimonsta', 'tokiwoki', 'Irina Ellington', '1990-10-23', 'tokibookings@mngmt.com', 'San Francisco', 'female', 0, 0, 0, ''),
+(25, 'AAA', '123', 'Prova', '1999-01-01', 'prova@gmail.com', 'Alicante', 'male', 0, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -243,9 +271,9 @@ INSERT INTO `user` (`OID`, `User_Name`, `Password`, `Full_Name`, `Date_Of_Birth`
 --
 
 CREATE TABLE IF NOT EXISTS `user_group` (
-`OID` int(11) NOT NULL,
+`OID_Group` int(11) NOT NULL,
   `Name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -315,7 +343,7 @@ ALTER TABLE `user`
 -- Indexes for table `user_group`
 --
 ALTER TABLE `user_group`
- ADD PRIMARY KEY (`OID`), ADD UNIQUE KEY `OID` (`OID`);
+ ADD PRIMARY KEY (`Name`,`OID_Group`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -330,7 +358,7 @@ MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 -- AUTO_INCREMENT for table `group`
 --
 ALTER TABLE `group`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `module`
 --
@@ -340,7 +368,7 @@ MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `playlist`
 --
 ALTER TABLE `playlist`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `timeline`
 --
@@ -360,12 +388,10 @@ MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
+MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `user_group`
---
-ALTER TABLE `user_group`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
+--;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

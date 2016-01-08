@@ -11,7 +11,7 @@
 
       function search($valor)
       {
-        $this->db->like("Name", $valor);
+        $this->db->like("Group_Name", $valor);
         $consulta = $this->db->get("user_group");
         return $consulta->result();
       }
