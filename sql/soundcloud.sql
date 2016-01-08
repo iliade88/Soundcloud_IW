@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Gen 08, 2016 alle 11:40
--- Versione del server: 5.6.20
--- PHP Version: 5.5.15
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 08-01-2016 a las 17:13:49
+-- Versión del servidor: 10.1.8-MariaDB
+-- Versión de PHP: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,25 +14,25 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `soundcloud`
+-- Base de datos: `soundcloud`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `category`
+-- Estructura de tabla para la tabla `category`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
-`OID` int(11) NOT NULL,
+CREATE TABLE `category` (
+  `OID` int(11) NOT NULL,
   `Name` varchar(250) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `category`
+-- Volcado de datos para la tabla `category`
 --
 
 INSERT INTO `category` (`OID`, `Name`) VALUES
@@ -53,16 +53,16 @@ INSERT INTO `category` (`OID`, `Name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `group`
+-- Estructura de tabla para la tabla `group`
 --
 
-CREATE TABLE IF NOT EXISTS `group` (
-`OID` int(11) NOT NULL,
+CREATE TABLE `group` (
+  `OID` int(11) NOT NULL,
   `Group_Name` varchar(250) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `group`
+-- Volcado de datos para la tabla `group`
 --
 
 INSERT INTO `group` (`OID`, `Group_Name`) VALUES
@@ -72,10 +72,10 @@ INSERT INTO `group` (`OID`, `Group_Name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `group_track`
+-- Estructura de tabla para la tabla `group_track`
 --
 
-CREATE TABLE IF NOT EXISTS `group_track` (
+CREATE TABLE `group_track` (
   `OID_Group` int(11) NOT NULL,
   `OID_Track` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -83,50 +83,51 @@ CREATE TABLE IF NOT EXISTS `group_track` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `module`
+-- Estructura de tabla para la tabla `module`
 --
 
-CREATE TABLE IF NOT EXISTS `module` (
-`OID` int(11) NOT NULL,
+CREATE TABLE `module` (
+  `OID` int(11) NOT NULL,
   `Module_ID` varchar(250) NOT NULL,
   `Module_Name` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `playlist`
+-- Estructura de tabla para la tabla `playlist`
 --
 
-CREATE TABLE IF NOT EXISTS `playlist` (
-`OID` int(11) NOT NULL,
+CREATE TABLE `playlist` (
+  `OID` int(11) NOT NULL,
   `Name` varchar(250) NOT NULL,
   `N_Followers` int(11) NOT NULL,
   `Image` blob NOT NULL,
-  `N_Tracks` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `N_Tracks` int(11) NOT NULL,
+  `Author` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `playlist`
+-- Volcado de datos para la tabla `playlist`
 --
 
-INSERT INTO `playlist` (`OID`, `Name`, `N_Followers`, `Image`, `N_Tracks`) VALUES
-(1, 'Pop songs', 0, '', 0),
-(2, 'Sogns relax', 0, '', 0);
+INSERT INTO `playlist` (`OID`, `Name`, `N_Followers`, `Image`, `N_Tracks`, `Author`) VALUES
+(1, 'Pop songs', 0, '', 0, ''),
+(2, 'Sogns relax', 0, '', 0, '');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `playlist_tracks`
+-- Estructura de tabla para la tabla `playlist_tracks`
 --
 
-CREATE TABLE IF NOT EXISTS `playlist_tracks` (
+CREATE TABLE `playlist_tracks` (
   `OID_Playlist` int(11) NOT NULL,
   `OID_Track` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `playlist_tracks`
+-- Volcado de datos para la tabla `playlist_tracks`
 --
 
 INSERT INTO `playlist_tracks` (`OID_Playlist`, `OID_Track`) VALUES
@@ -139,37 +140,37 @@ INSERT INTO `playlist_tracks` (`OID_Playlist`, `OID_Track`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `timeline`
+-- Estructura de tabla para la tabla `timeline`
 --
 
-CREATE TABLE IF NOT EXISTS `timeline` (
-`OID` int(11) NOT NULL,
+CREATE TABLE `timeline` (
+  `OID` int(11) NOT NULL,
   `Comentario` varchar(500) NOT NULL,
   `Time` time NOT NULL,
   `User` int(11) NOT NULL,
   `Track` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `tipo_user`
+-- Estructura de tabla para la tabla `tipo_user`
 --
 
-CREATE TABLE IF NOT EXISTS `tipo_user` (
-`OID` int(11) NOT NULL,
+CREATE TABLE `tipo_user` (
+  `OID` int(11) NOT NULL,
   `Tipo` varchar(250) NOT NULL,
   `Description` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `track`
+-- Estructura de tabla para la tabla `track`
 --
 
-CREATE TABLE IF NOT EXISTS `track` (
-`OID` int(11) NOT NULL,
+CREATE TABLE `track` (
+  `OID` int(11) NOT NULL,
   `Name` varchar(250) NOT NULL,
   `Artist` varchar(250) NOT NULL,
   `Image` blob NOT NULL,
@@ -182,10 +183,10 @@ CREATE TABLE IF NOT EXISTS `track` (
   `N_Plays` int(11) NOT NULL,
   `Trending` tinyint(1) NOT NULL,
   `Uploader` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `track`
+-- Volcado de datos para la tabla `track`
 --
 
 INSERT INTO `track` (`OID`, `Name`, `Artist`, `Image`, `Length`, `Uploaded`, `Listened`, `Top_Category`, `Description`, `N_Like`, `N_Plays`, `Trending`, `Uploader`) VALUES
@@ -215,11 +216,11 @@ INSERT INTO `track` (`OID`, `Name`, `Artist`, `Image`, `Length`, `Uploaded`, `Li
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `user`
+-- Estructura de tabla para la tabla `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
-`OID` int(11) NOT NULL,
+CREATE TABLE `user` (
+  `OID` int(11) NOT NULL,
   `User_Name` varchar(250) NOT NULL,
   `Password` varchar(250) NOT NULL,
   `Full_Name` varchar(250) NOT NULL,
@@ -231,10 +232,10 @@ CREATE TABLE IF NOT EXISTS `user` (
   `N_Following` int(11) NOT NULL,
   `N_Tracks` int(11) NOT NULL,
   `Image` blob NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dump dei dati per la tabella `user`
+-- Volcado de datos para la tabla `user`
 --
 
 INSERT INTO `user` (`OID`, `User_Name`, `Password`, `Full_Name`, `Date_Of_Birth`, `Email`, `Location`, `Gender`, `N_Followers`, `N_Following`, `N_Tracks`, `Image`) VALUES
@@ -267,131 +268,136 @@ INSERT INTO `user` (`OID`, `User_Name`, `Password`, `Full_Name`, `Date_Of_Birth`
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `user_group`
+-- Estructura de tabla para la tabla `user_group`
 --
 
-CREATE TABLE IF NOT EXISTS `user_group` (
-`OID_Group` int(11) NOT NULL,
+CREATE TABLE `user_group` (
+  `OID_Group` int(11) NOT NULL,
   `Name` varchar(250) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `category`
+-- Indices de la tabla `category`
 --
 ALTER TABLE `category`
- ADD PRIMARY KEY (`OID`), ADD UNIQUE KEY `OID` (`OID`);
+  ADD PRIMARY KEY (`OID`),
+  ADD UNIQUE KEY `OID` (`OID`);
 
 --
--- Indexes for table `group`
+-- Indices de la tabla `group`
 --
 ALTER TABLE `group`
- ADD PRIMARY KEY (`OID`), ADD UNIQUE KEY `OID` (`OID`,`Group_Name`);
+  ADD PRIMARY KEY (`OID`),
+  ADD UNIQUE KEY `OID` (`OID`,`Group_Name`);
 
 --
--- Indexes for table `group_track`
+-- Indices de la tabla `group_track`
 --
 ALTER TABLE `group_track`
- ADD PRIMARY KEY (`OID_Group`,`OID_Track`);
+  ADD PRIMARY KEY (`OID_Group`,`OID_Track`);
 
 --
--- Indexes for table `module`
+-- Indices de la tabla `module`
 --
 ALTER TABLE `module`
- ADD PRIMARY KEY (`OID`), ADD UNIQUE KEY `OID` (`OID`,`Module_ID`,`Module_Name`);
+  ADD PRIMARY KEY (`OID`),
+  ADD UNIQUE KEY `OID` (`OID`,`Module_ID`,`Module_Name`);
 
 --
--- Indexes for table `playlist`
+-- Indices de la tabla `playlist`
 --
 ALTER TABLE `playlist`
- ADD PRIMARY KEY (`OID`), ADD UNIQUE KEY `OID` (`OID`,`Name`);
+  ADD PRIMARY KEY (`OID`),
+  ADD UNIQUE KEY `OID` (`OID`,`Name`);
 
 --
--- Indexes for table `playlist_tracks`
+-- Indices de la tabla `playlist_tracks`
 --
 ALTER TABLE `playlist_tracks`
- ADD PRIMARY KEY (`OID_Playlist`,`OID_Track`);
+  ADD PRIMARY KEY (`OID_Playlist`,`OID_Track`);
 
 --
--- Indexes for table `timeline`
+-- Indices de la tabla `timeline`
 --
 ALTER TABLE `timeline`
- ADD PRIMARY KEY (`OID`), ADD UNIQUE KEY `OID` (`OID`);
+  ADD PRIMARY KEY (`OID`),
+  ADD UNIQUE KEY `OID` (`OID`);
 
 --
--- Indexes for table `tipo_user`
+-- Indices de la tabla `tipo_user`
 --
 ALTER TABLE `tipo_user`
- ADD PRIMARY KEY (`OID`), ADD UNIQUE KEY `OID` (`OID`);
+  ADD PRIMARY KEY (`OID`),
+  ADD UNIQUE KEY `OID` (`OID`);
 
 --
--- Indexes for table `track`
+-- Indices de la tabla `track`
 --
 ALTER TABLE `track`
- ADD PRIMARY KEY (`OID`), ADD UNIQUE KEY `OID` (`OID`,`Artist`);
+  ADD PRIMARY KEY (`OID`),
+  ADD UNIQUE KEY `OID` (`OID`,`Artist`);
 
 --
--- Indexes for table `user`
+-- Indices de la tabla `user`
 --
 ALTER TABLE `user`
- ADD PRIMARY KEY (`OID`), ADD UNIQUE KEY `OID` (`OID`,`User_Name`,`Email`);
+  ADD PRIMARY KEY (`OID`),
+  ADD UNIQUE KEY `OID` (`OID`,`User_Name`,`Email`);
 
 --
--- Indexes for table `user_group`
+-- Indices de la tabla `user_group`
 --
 ALTER TABLE `user_group`
- ADD PRIMARY KEY (`Name`,`OID_Group`);
+  ADD PRIMARY KEY (`Name`,`OID_Group`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `category`
+-- AUTO_INCREMENT de la tabla `category`
 --
 ALTER TABLE `category`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT for table `group`
+-- AUTO_INCREMENT de la tabla `group`
 --
 ALTER TABLE `group`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `module`
+-- AUTO_INCREMENT de la tabla `module`
 --
 ALTER TABLE `module`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `playlist`
+-- AUTO_INCREMENT de la tabla `playlist`
 --
 ALTER TABLE `playlist`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
--- AUTO_INCREMENT for table `timeline`
+-- AUTO_INCREMENT de la tabla `timeline`
 --
 ALTER TABLE `timeline`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `tipo_user`
+-- AUTO_INCREMENT de la tabla `tipo_user`
 --
 ALTER TABLE `tipo_user`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `track`
+-- AUTO_INCREMENT de la tabla `track`
 --
 ALTER TABLE `track`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;
---
--- AUTO_INCREMENT for table `user_group`
---;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
