@@ -42,6 +42,9 @@ function buscarTrack(){
           html += "</tr>";
         }
         html += "</tbody></table>";
+        for (var i = 0; i < resultados.length; i++) {
+
+        }
       }
       else{
           html += " - No results</h3>";
@@ -71,6 +74,9 @@ function buscarPlaylist(){
           html += "</tr>";
         }
         html += "</tbody></table>";
+        for (var i = 0; i < resultados.length; i++) {
+
+        }
       }
       else{
           html += " - No results</h3>";
@@ -97,6 +103,9 @@ function buscarGroups(){
           html += "</tr>";
         }
         html += "</tbody></table>";
+        for (var i = 0; i < resultados.length; i++) {
+
+        }
       }
       else{
           html += " - No results</h3>";
@@ -133,6 +142,9 @@ function buscarUsers(){
           html += "</tr>";
         }
         html += "</tbody></table>";
+        for (var i = 0; i < resultados.length; i++) {
+
+        }
       }
       else{
           html += " - No results</h3>";
