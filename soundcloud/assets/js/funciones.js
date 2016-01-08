@@ -99,7 +99,7 @@ function buscarGroups(){
         html+= "</h3><table class=\"table-striped\"><thead><tr><th>Name</th></tr></thead><tbody>";
         for (var i = 0; i < resultados.length; i++) {
           html += "<tr>";
-          html += "<td><a href='group_info_controller?oid="+ resultados[i].OID + "'></a>"+resultados[i].Name+"</td>";
+          html += "<td><a href='group_info_controller?oid="+ resultados[i].OID + "'></a>"+resultados[i].Group_Name+"</td>";
           html += "</tr>";
         }
         html += "</tbody></table>";

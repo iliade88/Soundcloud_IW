@@ -12,7 +12,7 @@
       function search($valor)
       {
         $this->db->like("Group_Name", $valor);
-        $consulta = $this->db->get("user_group");
+        $consulta = $this->db->get("group");
         return $consulta->result();
       }
   }

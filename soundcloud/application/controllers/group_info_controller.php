@@ -15,17 +15,17 @@ class Group_info_controller extends CI_Controller {
 	{
 		$data['oid'] = $_GET['oid'];
 		$output['group'] = $this->get_group_info($data['oid']);
-		$output['tracks'] = $this->get_tracks_info($data['oid']);
+		$output['user'] = $this->get_user_info($data['oid']);
 		$this->load->view('group_info_view', $output);
 	}
 
 	public function get_group_info($oid)
 	{
-		return $this->db->query("SELECT * FROM groups WHERE OID = $oid");
+		return $this->db->query("SELECT * FROM `group` WHERE OID = $oid");
 	}
 
-	public function get_tracks_info($oid)
+	public function get_user_info($oid)
 	{
-		return $this->db->query("SELECT track.Name track_name, track.Top_Category track_category FROM track JOIN group_track ON track.OID = group_track.OID_Track WHERE group_track.OID_Group = $oid");
+		return $this->db->query("SELECT user.User_Name user_name, user.Location Location FROM user JOIN user_group ON user.User_Name = user_group.Name WHERE user_group.OID_Group = $oid");
 	}
 }

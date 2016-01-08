@@ -17,21 +17,21 @@
 		<tr>
 			<td> Name </td>
 			<td><?php
-				echo $res->Name;
+				echo $res->Group_Name;
 			?></td>
 		</tr>
 	</table>
 	<table width="50%">
-		<th width="50%" >Name</th>
-		<th width="50%">Category</th>
+		<th width="50%" >User</th>
+		<th width="50%">Location</th>
 		<?php
-			foreach($tracks->result() as $row)
+			foreach($user->result() as $row)
 			{
 				echo '<tr>';
 
-				echo "<td> $row->track_name </td>";
+				echo "<td> $row->user_name </td>";
 
-				echo "<td> $row->track_category </td>";
+				echo "<td> $row->Location </td>";
 
 				echo '</tr>';
 			}
