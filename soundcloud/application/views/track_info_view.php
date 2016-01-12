@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Hola mundo</title>
-
-
+	<title>Soundcloud</title>
+	<?php require_once('requires.php'); ?>
 </head>
 <body>
-
-<main>
-	<h1>Track Info</h1>
-	<?php
+	<?php require_once('menu.php'); ?>
+	<main>
+		<h1>Track Info</h1>
+		<?php
 		$res = $track->row();
 	?>
 	<table border="1">

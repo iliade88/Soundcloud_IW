@@ -5,22 +5,42 @@ PUBLIC:
   - Buscador de Usuarios <DONE>
 
   - Info cancion (con comentarios timeline) <DONE> 
-  - Info playlist 
-  - Info grupo
+  - Info playlist <DONE>
+  - Info grupo <DONE>
   - Info usuario  <DONE>
 
 PRIVATE:
-  - Comentar cancion timeline
-  - Crear Playlist
-  - Crear Grupos
-  - Unirse al Grupo (Se hará con un botón en la info del grupo)
-  - Añadir canciones a playlist y grupos (WTF COMO LO HACEMOS D:)
+  - Comentar cancion timeline <DONE>
+  - Crear Playlist <DONE>
+  - Crear Grupos <DONE>
+  - Unirse al Grupo (Se hará con un botón en la info del grupo) <DONE>
+
 
 - CRUD cancion <DONE>
 - CRUD categorias <DONE>
 
-
-
 ---------------------------------------------------------------------------------------------------------------------------------------------------
+  /////////////
+ // Alberto //
+/////////////
 
+- LOGOUT <DONE>
+- Añadir canciones a playlist y grupos <DONE>
+
+  //////////
+ // CRIS //
+//////////
 - Encriptar contraseñas
+- En el buscador falta poder filtrar qué contenido quieres, y mostrar un contenido inicial. Tambien deberiamos darle estilo al input buscador
+- Imagenes (Para todas las tablas)
+- Mostrar comentarios en Info cancion (comentario del timeline)
+- FIXEAR Desplegables de comentario (si elige el último minuto se muestren los segundos necesarios, para el resto de 0 a 59)
+
+  /////////////
+ // Cameron //
+/////////////
+- Memoria
+	- Mockups
+	- Wireframes
+	- Casos de uso
+

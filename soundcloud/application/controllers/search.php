@@ -8,7 +8,7 @@ class Search extends CI_Controller {
 
     $this->load->database();
     $this->load->helper('url');
-    $this->load->model('Track');
+    $this->load->model('Track_model');
     $this->load->model('Playlists');
     $this->load->model('Groups');
     $this->load->model('Users');
@@ -22,7 +22,7 @@ class Search extends CI_Controller {
   public function buscarTrack(){
     if($this->input->is_ajax_request()){
       $buscar = $this->input->post("buscar");
-      $datos = $this->Track->search($buscar);
+      $datos = $this->Track_model->search($buscar);
       echo json_encode($datos);
     }
   }

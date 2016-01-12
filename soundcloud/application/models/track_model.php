@@ -1,11 +1,19 @@
-<? php
-	class Track_model extends CI_Model {
-
-		public function get_tracks()
-		{
-			return $this->db->query('SELECT * FROM track');
-		}
-	}
+<?php
+  class Track_model extends CI_MODEL{
 
 
+      function __construct()
+      {
+        parent::__construct();
+        // Make the database available to all the methods
+        $this->load->database();
+      }
+
+      function search($valor)
+      {
+        $this->db->like("Name", $valor);
+        $consulta = $this->db->get("track");
+        return $consulta->result();
+      }
+  }
 ?>

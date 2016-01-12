@@ -23,11 +23,12 @@
 	</style>
 </head>
 <body>
+
 	<div>
 		<?php require_once('menu.php'); ?>
 	</div>
 	<div style='height:20px;'></div>
-	<input type="text" name="buscar" id="buscar" placeholder="Buscar..."/><br>
+	<input type="text" name="buscar" id="buscar" placeholder="Buscar..." autofocus/><br>
 	<div class="content">
 		<div id="resultadosTracks">
 
