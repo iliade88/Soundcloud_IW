@@ -12,6 +12,6 @@
     echo "<h2>Welcome {{$username}} !</h2>";
   }
   ?>
-  <a href="home/logout">Logout</a>
+  <a href="/soundcloud/index.php/logout">Logout</a>
 </body>
 </html>

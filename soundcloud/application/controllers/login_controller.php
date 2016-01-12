@@ -26,7 +26,7 @@ class Login_controller extends CI_Controller {
     $results=$query->row();
     $this->session->set_userdata('OID', $results->OID);
 		$name = $this->input->post('username');
-		echo "Bienvenido $name $results->OID";
+		echo "Bienvenido $name";
 		$this->session->set_userdata('username', $name);
 		$this->load->view('home_view');
 	}else{

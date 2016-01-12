@@ -17,14 +17,14 @@
           if($this->session->userdata("username"))
           {?>
           <?php echo ($this->session->userdata("username")); ?>
-            <li><a href="/soundcloud/index.php/login">Logout</a></li>
+            <li><a href="/soundcloud/index.php/logout">Logout</a></li>
             <li><a href="/soundcloud/index.php/user_info_controller?oid=<?php echo ($this->session->userdata('OID')); ?>"><?php echo ($this->session->userdata("username")); ?></a></li>
             <?php
             }
           else
             {
               ?>
-                <li><a href="/soundcloud/index.php/login">Login</a></li>
+                <li><a href="/soundcloud/index.php/login_controller">Login</a></li>
               <?php 
             } 
               ?>
