@@ -75,6 +75,41 @@
 		<th width="15%" >Author</th>
 		<th width="70%">Comment</th>
 		<?php
+			echo '<br>';
+			$username = $this->session->userdata('username');
+			if($username)
+			{
+				$playlists = $this->Track_info_model->get_playlists($username);
+				echo "<form method='post' action='/soundcloud/index.php/track_info_controller/add_to_playlist/'>";
+				
+				echo "<input type='hidden' name='oidTrack' value='$res->OID'>";
+				echo '<select name ="oidPlaylist">';
+				foreach($playlists->result() as $row)
+				{
+					echo "<option value='$row->OID'>$row->Name</option>";
+				}
+				echo '</select>';
+				echo "<input type='submit' value='Añadir canción a playlist'>";
+				echo '<br>';
+				echo '</form>';
+				echo '<br>';
+
+				$groups = $this->Track_info_model->get_groups($username);
+				echo "<form method='post' action='/soundcloud/index.php/track_info_controller/add_to_group/'>";
+				
+				echo "<input type='hidden' name='oidTrack' value='$res->OID'>";
+				echo '<select name ="oidGroup">';
+				foreach($groups->result() as $row)
+				{
+					echo "<option value='$row->OID'>$row->Group_Name</option>";
+				}
+				echo '</select>';
+				echo "<input type='submit' value='Añadir canción a grupo'>";
+				echo '<br>';
+				echo '</form>';
+			}
+
+
 			foreach($comments->result() as $row)
 			{
 				echo '<tr>';

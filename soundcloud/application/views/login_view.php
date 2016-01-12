@@ -9,7 +9,7 @@
 <body>
 
 <main>
-<form action="http://localhost/soundcloud/index.php/login_controller/Login" method ="post">
+<form action="/soundcloud/index.php/login_controller/Login" method ="post">
 
 	Username: <input type="text" name="username"><br>
 	Password: <input type="password" name="pass"><br>
