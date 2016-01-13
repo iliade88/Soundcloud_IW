@@ -13,6 +13,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <style media="screen">
-  body { padding: 8em; }
-  th, td { padding: 1em;}
+  body { padding: 2em; padding-top: 8em!important; }
+  th, td { padding: 1em; text-align: center;}
+  table{width: 100%; }
 </style>

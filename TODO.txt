@@ -32,10 +32,11 @@ PRIVATE:
 //////////
 - Encriptar contraseñas
 - En el buscador falta poder filtrar qué contenido quieres <DONE>
-- En el buscador mostrar un contenido inicial. 
-- Tambien deberiamos darle estilo al input del buscador
+- En el buscador mostrar un contenido inicial. <DONE>
+- Paginacion en el buscador <DONE>
+- Tambien deberiamos darle estilo al input del buscador <DONE>
 - Imagenes (Para todas las tablas)
-- Mostrar comentarios en Info cancion (comentario del timeline)
+- Mostrar comentarios en Info cancion (comentario del timeline) <DONE>
 - FIXEAR Desplegables de comentario (si elige el último minuto se muestren los segundos necesarios, para el resto de 0 a 59)
 
   /////////////

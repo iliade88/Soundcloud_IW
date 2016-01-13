@@ -75,82 +75,70 @@
 			</tr>
 		</table>
 
-		<table width="100%">
-			<th width="15%" >Minute</th>
-			<th width="15%" >Author</th>
-			<th width="70%">Comment</th>
-			<?php
-			echo '<br>';
-			$username = $this->session->userdata('username');
-			if($username)
-			{
-				$playlists = $this->Track_info_model->get_playlists($username);
-				echo "<form method='post' action='/soundcloud/index.php/track_info_controller/add_to_playlist/'>";
-
-				echo "<input type='hidden' name='oidTrack' value='$res->OID'>";
-				echo '<select name ="oidPlaylist">';
-				foreach($playlists->result() as $row)
+		<table width="100%" class="table-striped">
+			<thead>
+				<tr>
+					<th width="15%" >Minute</th>
+					<th width="15%" >Author</th>
+					<th width="70%">Comment</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				foreach($comments->result() as $row)
 				{
-					echo "<option value='$row->OID'>$row->Name</option>";
+					echo '<tr>';
+
+
+					echo "<td> $row->Time </td>";
+
+					echo "<td> $row->User_Name </td>";
+
+					echo "<td> $row->Comentario </td>";
+
+					echo '</tr>';
+
 				}
-				echo '</select>';
-				echo "<input type='submit' value='Añadir canción a playlist'>";
-				echo '<br>';
-				echo '</form>';
-				echo '<br>';
 
-				$groups = $this->Track_info_model->get_groups($username);
-				echo "<form method='post' action='/soundcloud/index.php/track_info_controller/add_to_group/'>";
-
-				echo "<input type='hidden' name='oidTrack' value='$res->OID'>";
-				echo '<select name ="oidGroup">';
-				foreach($groups->result() as $row)
-				{
-					echo "<option value='$row->OID'>$row->Group_Name</option>";
-				}
-				echo '</select>';
-				echo "<input type='submit' value='Añadir canción a grupo'>";
-				echo '<br>';
-				echo '</form>';
-			}
-
-
-			foreach($comments->result() as $row)
-			{
-				echo '<tr>';
-
-				echo "<td> $row->Time </td>";
-
-				echo "<td> $row->User_Name </td>";
-
-				echo "<td> $row->Comentario </td>";
-
-				echo '</tr>';
-			}
-
-			foreach($comments->result() as $row)
-			{
-				echo '<tr>';
-
-				echo "<td> $row->Time </td>";
-
-				$time=$row->Time;
-				$minutos=floor ($time/60);
-				$sec=$time-($minutos*60);
-				echo "<td>$minutos:$sec</td>";
-
-
-
-				echo "<td> $row->User_Name </td>";
-
-				echo "<td> $row->Comentario </td>";
-
-				echo '</tr>';
-
-			}
-
-			?>
+				?>
+			</tbody>
 		</table>
+
+		<?php
+		echo '<br>';
+		$username = $this->session->userdata('username');
+		if($username)
+		{
+			$playlists = $this->Track_info_model->get_playlists($username);
+			echo "<form method='post' action='/soundcloud/index.php/track_info_controller/add_to_playlist/'>";
+
+			echo "<input type='hidden' name='oidTrack' value='$res->OID'>";
+			echo '<select name ="oidPlaylist">';
+			foreach($playlists->result() as $row)
+			{
+				echo "<option value='$row->OID'>$row->Name</option>";
+			}
+			echo '</select>';
+			echo "<input type='submit' value='Añadir canción a playlist'>";
+			echo '<br>';
+			echo '</form>';
+			echo '<br>';
+
+			$groups = $this->Track_info_model->get_groups($username);
+			echo "<form method='post' action='/soundcloud/index.php/track_info_controller/add_to_group/'>";
+
+			echo "<input type='hidden' name='oidTrack' value='$res->OID'>";
+			echo '<select name ="oidGroup">';
+			foreach($groups->result() as $row)
+			{
+				echo "<option value='$row->OID'>$row->Group_Name</option>";
+			}
+			echo '</select>';
+			echo "<input type='submit' value='Añadir canción a grupo'>";
+			echo '<br>';
+			echo '</form>';
+		}
+		?>
 	</main>
 	<form class="form-inline" action="/soundcloud/index.php/track/write_comment" method="POST">
 		<fieldset>
