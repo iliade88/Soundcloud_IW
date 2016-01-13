@@ -7,6 +7,7 @@ class Login_controller extends CI_Controller {
     parent::__construct();
     $this->load->library('session');
     $this->load->database();
+    $this->load->model('Track_model');
   }
 
   function index()
@@ -22,13 +23,15 @@ class Login_controller extends CI_Controller {
 	if($valid)
 	{
 
-    $query = $this->db->query("SELECT OID FROM user WHERE User_Name = '$username'");
+    $query = $this->db->query("SELECT OID, Admin FROM user WHERE User_Name = '$username'");
     $results=$query->row();
     $this->session->set_userdata('OID', $results->OID);
+    $this->session->set_userdata('Admin', $results->Admin);
 		$name = $this->input->post('username');
-		echo "Bienvenido $name";
+
 		$this->session->set_userdata('username', $name);
-		$this->load->view('home_view');
+    $data['moreListenedSongs'] = $this->Track_model->moreListenedSongs();
+		$this->load->view('home_view', $data);
 	}else{
     	$this->index();
   	}

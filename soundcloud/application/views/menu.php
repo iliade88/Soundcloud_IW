@@ -20,6 +20,14 @@
       {?>
         <?php echo ($this->session->userdata("username")); ?>
         <li><a href="/soundcloud/index.php/user_info_controller?oid=<?php echo ($this->session->userdata('OID')); ?>"><?php echo ($this->session->userdata("username")); ?></a></li>
+        <?php
+          if($this->session->userdata("Admin")){
+          ?>
+            <li><a href="/soundcloud/index.php/track">Track Crud</a></li>
+            <li><a href="/soundcloud/index.php/category">Category Crud</a></li>
+            <?php
+          }
+        ?>
         <li><a href="/soundcloud/index.php/logout">Logout</a></li>
         <?php
       }

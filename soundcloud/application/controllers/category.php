@@ -14,7 +14,12 @@ class Category extends CI_Controller {
 
   public function index()
   {
-      $this->show();
+		if($this->session->userdata("Admin")){
+			$this->show();
+		}
+		else{
+			redirect('/');
+		}
   }
 
 	public function show()

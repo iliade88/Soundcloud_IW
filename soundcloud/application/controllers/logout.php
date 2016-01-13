@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Logout extends CI_Controller {
 
@@ -6,11 +6,13 @@ class Logout extends CI_Controller {
 	{
 		parent::__construct();
 		$this->session->sess_destroy();
+		$this->load->Model('Track_model');
 	}
 
 	public function index()
 	{
-		$this->load->view('home_view');
+		$data['moreListenedSongs'] = $this->Track_model->moreListenedSongs();
+		$this->load->view('home_view', $data);
 	}
 }
 ?>

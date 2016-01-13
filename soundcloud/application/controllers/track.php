@@ -15,7 +15,12 @@ class Track extends CI_Controller {
 
 	public function index()
 	{
-		$this->show();
+		if($this->session->userdata("Admin")){
+			$this->show();
+		}
+		else{
+			redirect('/');
+		}
 	}
 
 	public function show() //Muestra una tabla con el CRUD de track

@@ -5,11 +5,13 @@ class Index extends CI_Controller {
   function __construct()
   {
     parent::__construct();
+    $this->load->Model('Track_model');
   }
 
   function index()
   {
-      $this->load->view('home_view');
+    $data['moreListenedSongs'] = $this->Track_model->moreListenedSongs();
+    $this->load->view('home_view', $data);
   }
 
 }
