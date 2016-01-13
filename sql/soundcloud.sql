@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-01-2016 a las 17:13:49
+-- Tiempo de generación: 13-01-2016 a las 11:10:47
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -67,7 +67,8 @@ CREATE TABLE `group` (
 
 INSERT INTO `group` (`OID`, `Group_Name`) VALUES
 (1, 'Pop fan club'),
-(2, 'Rock fan club');
+(2, 'Rock fan club'),
+(3, 'Metal fan club');
 
 -- --------------------------------------------------------
 
@@ -79,6 +80,13 @@ CREATE TABLE `group_track` (
   `OID_Group` int(11) NOT NULL,
   `OID_Track` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `group_track`
+--
+
+INSERT INTO `group_track` (`OID_Group`, `OID_Track`) VALUES
+(2, 1);
 
 -- --------------------------------------------------------
 
@@ -113,7 +121,9 @@ CREATE TABLE `playlist` (
 
 INSERT INTO `playlist` (`OID`, `Name`, `N_Followers`, `Image`, `N_Tracks`, `Author`) VALUES
 (1, 'Pop songs', 0, '', 0, ''),
-(2, 'Sogns relax', 0, '', 0, '');
+(2, 'Sogns relax', 0, '', 0, ''),
+(3, 'Rock', 0, '', 0, 'AAA'),
+(4, 'Metal', 124, '', 0, 'AAA');
 
 -- --------------------------------------------------------
 
@@ -135,7 +145,9 @@ INSERT INTO `playlist_tracks` (`OID_Playlist`, `OID_Track`) VALUES
 (1, 8),
 (1, 17),
 (1, 18),
-(1, 21);
+(1, 21),
+(3, 1),
+(4, 1);
 
 -- --------------------------------------------------------
 
@@ -231,39 +243,40 @@ CREATE TABLE `user` (
   `N_Followers` int(11) NOT NULL,
   `N_Following` int(11) NOT NULL,
   `N_Tracks` int(11) NOT NULL,
-  `Image` blob NOT NULL
+  `Image` blob NOT NULL,
+  `Admin` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`OID`, `User_Name`, `Password`, `Full_Name`, `Date_Of_Birth`, `Email`, `Location`, `Gender`, `N_Followers`, `N_Following`, `N_Tracks`, `Image`) VALUES
-(1, 'AUCAN', 'Aucan1234', 'Marco Ferrè', '1990-01-12', 'aucan@gmail.com', 'Bergamo', 'male', 0, 0, 0, ''),
-(2, 'Venetian Snares', 'venetian', 'Vincenzo Twin', '1985-12-24', 'vincennzo.t@gmail.com', 'Verana', 'male', 0, 0, 0, ''),
-(3, 'Aphex Jauz', 'Aphex234', 'Alfonso Ziq', '1990-02-25', 'aphex.jauz@gmail.com', 'New York', 'male', 0, 0, 0, ''),
-(4, 'Aria San', 'Aria1234', 'Arianna Santa', '1978-03-21', 'arianna.s@hotmail.com', 'Longuelo', 'female', 0, 0, 0, ''),
-(5, 'Pomo', 'pomoricky', 'Riccardo Erikson', '1983-05-01', 'erik.rik@tiscali.it', 'Milano', 'male', 0, 0, 0, ''),
-(6, 'Clap! Clap!', 'clapclap', 'Giovanni Belloni', '1989-09-23', 'belloni.g@gmail.com', 'Firenze', 'male', 0, 0, 0, ''),
-(7, 'Diplo', 'diplo89', 'Igor Smith', '1989-02-16', 'diplo89@hotmail.com', 'San Francisco', 'male', 0, 0, 0, ''),
-(8, 'Bjork', 'BjorkErika', 'Erika Schimdt', '1974-12-23', 'bjork.musik@roman.com', 'Oslo', 'female', 0, 0, 0, ''),
-(9, 'Gellarty', 'Gell1995', 'Sam Gellaitry', '1995-12-11', 'Gell.sam@hotmail.com', 'Berlin', 'male', 0, 0, 0, ''),
-(10, 'Gorgon City', 'gorogoncitymusic', 'George Welsh', '1986-12-15', 'welsh.george@musicmngmt.com', 'London', 'male', 0, 0, 0, ''),
-(11, 'Faith Maker', 'freddy12', 'Fred Norm', '1983-11-11', 'faith.maker@gmail.com', 'Manchester', 'male', 0, 0, 0, ''),
-(12, 'Hudson Mohawke', 'hudmo', 'John Hudgson', '1998-01-04', 'hudmo.production@mngmt.com', 'London', 'male', 0, 0, 0, ''),
-(13, 'P.Morris', 'Morrissey', 'Morris Smith', '1964-08-18', 'MSmith@hotmail.com', 'London', 'male', 0, 0, 0, ''),
-(14, 'Empire of the Sun', 'EMPofTSun', 'Sara Jinny', '1984-02-14', 'sara.jinny@gmail.com', 'Brighton', 'female', 0, 0, 0, ''),
-(15, 'Broke One', 'reminiscens', 'Fabio Broccato', '1989-01-23', 'fabio.broccato@gmail.com', 'Milano', 'male', 0, 0, 0, ''),
-(16, 'Ryan James Music', 'ryanjamesmusic', 'Ryan James Erikson', '1987-07-31', 'ryan.james@music.com', 'California', 'male', 0, 0, 0, ''),
-(17, 'Zeds Dead', 'zeddy-d', 'Charlie Westbrom', '1983-06-07', 'charly83@hotmail.com', 'Boston', 'male', 0, 0, 0, ''),
-(18, 'FedericaElmi', 'Fedeelmuz', 'Federica Elmi', '1990-05-09', 'fede.elmi@gmail.com', 'Roma', 'female', 0, 0, 0, ''),
-(19, 'BRO SAFARI', 'safari90s', 'Christian Geody', '1990-03-14', 'geody.c@hotmail.com', 'Bristol', 'male', 0, 0, 0, ''),
-(20, 'Dusky', 'duskycall', 'John Calling', '1978-10-14', 'calling.vip@gmail.com', 'Paris', 'male', 0, 0, 0, ''),
-(21, 'Steve Aoki', 'AOKIDJ', 'Stepehn Ray Aoking', '1999-12-18', 'steve.aoki@bookings.com', 'Miami', 'male', 0, 0, 0, ''),
-(22, 'The Weeknd', 'weeknd2015', 'Delia Smiths', '1990-12-30', 'theweeknd@hotmail.com', 'Boston', 'female', 0, 0, 0, ''),
-(23, 'Yoko Ono', 'yokoono1949', 'Yoko Ono', '1949-11-23', 'yoko.ono@mngmt.com', 'New York', 'female', 0, 0, 0, ''),
-(24, 'Tokimonsta', 'tokiwoki', 'Irina Ellington', '1990-10-23', 'tokibookings@mngmt.com', 'San Francisco', 'female', 0, 0, 0, ''),
-(25, 'AAA', '123', 'Prova', '1999-01-01', 'prova@gmail.com', 'Alicante', 'male', 0, 0, 0, '');
+INSERT INTO `user` (`OID`, `User_Name`, `Password`, `Full_Name`, `Date_Of_Birth`, `Email`, `Location`, `Gender`, `N_Followers`, `N_Following`, `N_Tracks`, `Image`, `Admin`) VALUES
+(1, 'AUCAN', '$2a$10$lesFWL6h1NUSSHOP16UGd.4jdwpN.tnC55lZnDravCIJFr31F7ct.', 'Marco Ferrè', '1990-01-12', 'aucan@gmail.com', 'Bergamo', 'male', 0, 0, 0, '', 0),
+(2, 'Venetian Snares', '$2a$10$uLQqqScy9tKOnfHR7yiP6.I019tefar/LDvw6jRagdRzbCZKo6st2', 'Vincenzo Twin', '1985-12-24', 'vincennzo.t@gmail.com', 'Verana', 'male', 0, 0, 0, '', 0),
+(3, 'Aphex Jauz', '$2a$10$gYM2mOmnNN1U/nD808lLKeOAkXV3TCFkL6iF5.bpU3yazeKmHTMPG', 'Alfonso Ziq', '1990-02-25', 'aphex.jauz@gmail.com', 'New York', 'male', 0, 0, 0, '', 0),
+(4, 'Aria San', '$2a$10$rQDXwToHwNLH1cdi4LmRJep2RIDJUf72Kz0TJszSuNICY7qSQP2BG', 'Arianna Santa', '1978-03-21', 'arianna.s@hotmail.com', 'Longuelo', 'female', 0, 0, 0, '', 0),
+(5, 'Pomo', '$2a$10$E3qdnEuFHHiYDr/TZ6cje.x.bCH6U7dbKNsSTtp/mP17uO.pBf5K6', 'Riccardo Erikson', '1983-05-01', 'erik.rik@tiscali.it', 'Milano', 'male', 0, 0, 0, '', 0),
+(6, 'Clap! Clap!', '$2a$10$CeTTF5K1SNUlNhEr1PkxZurkappgxb9vUDdGZvfO2KbxFKY6L7m1K', 'Giovanni Belloni', '1989-09-23', 'belloni.g@gmail.com', 'Firenze', 'male', 0, 0, 0, '', 0),
+(7, 'Diplo', '$2a$10$Evx1gcnBrc9lshyr9Kyoj.feFVziN/dOsgr2FZ27had393.A8448.', 'Igor Smith', '1989-02-16', 'diplo89@hotmail.com', 'San Francisco', 'male', 0, 0, 0, '', 0),
+(8, 'Bjork', '$2a$10$.1EknK2VxfyimHwfJjdhPenmqRDyxbaeACt6GEdkAuF3NGCt/ASBy', 'Erika Schimdt', '1974-12-23', 'bjork.musik@roman.com', 'Oslo', 'female', 0, 0, 0, '', 0),
+(9, 'Gellarty', '$2a$10$y4rboyhyamPkLEWo/GoL8.H1LLVVL46YyEDKK/sh7MBnwQVu0wt8O', 'Sam Gellaitry', '1995-12-11', 'Gell.sam@hotmail.com', 'Berlin', 'male', 0, 0, 0, '', 0),
+(10, 'Gorgon City', '$2a$10$43jtBZBeYLXndf8Lc8RDSeUctCrt8IOT8YTYz.2acPvycYf9x1w3.', 'George Welsh', '1986-12-15', 'welsh.george@musicmngmt.com', 'London', 'male', 0, 0, 0, '', 0),
+(11, 'Faith Maker', '$2a$10$yvm8H9/xRwqIHKwXGOTjDO5UWrZR8xVcsx5V5QZGLLrBUkTWYeDl.', 'Fred Norm', '1983-11-11', 'faith.maker@gmail.com', 'Manchester', 'male', 0, 0, 0, '', 0),
+(12, 'Hudson Mohawke', '$2a$10$4dnz9EOESpvF/0e6DPda/uP9fLM.pjXcPd1OSl1AIlX4z3jigTiW2', 'John Hudgson', '1998-01-04', 'hudmo.production@mngmt.com', 'London', 'male', 0, 0, 0, '', 0),
+(13, 'P.Morris', '$2a$10$DY81WGqWA6.gxA1gu5wbfOB/qTAeFoXh4o.mH6d.YIQoLImlh/3im', 'Morris Smith', '1964-08-18', 'MSmith@hotmail.com', 'London', 'male', 0, 0, 0, '', 0),
+(14, 'Empire of the Sun', '$2a$10$NAR00/qcjKv8dypJ.5pq9Or8ywBfrydrD60Jz4L5KfZ.y2Ai7E9ge', 'Sara Jinny', '1984-02-14', 'sara.jinny@gmail.com', 'Brighton', 'female', 0, 0, 0, '', 0),
+(15, 'Broke One', '$2a$10$QwNaJIb7EX4YtNzv08kKL.5rkK.Vij8.i3ga7IqM6aPGp380TM7wG', 'Fabio Broccato', '1989-01-23', 'fabio.broccato@gmail.com', 'Milano', 'male', 0, 0, 0, '', 0),
+(16, 'Ryan James Music', '$2a$10$.6kAQKngHuR5A4Q9w1IfH.foZ9Ol1LIu90MYU8h6tiUTmas/2o97O', 'Ryan James Erikson', '1987-07-31', 'ryan.james@music.com', 'California', 'male', 0, 0, 0, '', 0),
+(17, 'Zeds Dead', '$2a$10$gSvZGVTgly1VVrhAYhjEEOkavuGflzLvuNqyufFWaid0jzn5RCt0e', 'Charlie Westbrom', '1983-06-07', 'charly83@hotmail.com', 'Boston', 'male', 0, 0, 0, '', 0),
+(18, 'FedericaElmi', '$2a$10$UaDjyZAyJUZsW2NLuz.o3.w.B6rULjlC7Y.8oZQNDRGt6x9HKV37C', 'Federica Elmi', '1990-05-09', 'fede.elmi@gmail.com', 'Roma', 'female', 0, 0, 0, '', 0),
+(19, 'BRO SAFARI', '$2a$10$kfd1oIVpMhAShBIzBoiVh.Uh/.5Dt21BSZvmlNRYqZ.w2ecEKDa9K', 'Christian Geody', '1990-03-14', 'geody.c@hotmail.com', 'Bristol', 'male', 0, 0, 0, '', 0),
+(20, 'Dusky', '$2a$10$L5umJMdYa5rZJxAvnSiqx.WZHqolbIs6wfZZl07.nKyxvk0QGWyAq', 'John Calling', '1978-10-14', 'calling.vip@gmail.com', 'Paris', 'male', 0, 0, 0, '', 0),
+(21, 'Steve Aoki', '$2a$10$IWGmNIilwaT/sf0.hw2ekuqpaeItNXJNDRx/LOzO/Tv5oxmN9PPnK', 'Stepehn Ray Aoking', '1999-12-18', 'steve.aoki@bookings.com', 'Miami', 'male', 0, 0, 0, '', 0),
+(22, 'The Weeknd', '$2a$10$d2kKPpBwk303g.a.8St4EOWHtFdbHZSsQyVjo5CVjsFFEuyEInU6C', 'Delia Smiths', '1990-12-30', 'theweeknd@hotmail.com', 'Boston', 'female', 0, 0, 0, '', 0),
+(23, 'Yoko Ono', '$2a$10$gvftFpEKznfNuo2m37Mjnuefs7XWZYhpohK7I4Bpa8bwSBKS6eMzK', 'Yoko Ono', '1949-11-23', 'yoko.ono@mngmt.com', 'New York', 'female', 0, 0, 0, '', 0),
+(24, 'Tokimonsta', '$2a$10$RR5XBR34aDzDHEKqUYJhfedTxaPhxMlvFfXpTzWHoVG1us0vqY4hC', 'Irina Ellington', '1990-10-23', 'tokibookings@mngmt.com', 'San Francisco', 'female', 0, 0, 0, '', 0),
+(25, 'AAA', '$2a$10$TgYv./wkmDvr0oY6dw4Mse9wuC8SCtj5WKv2.qA2zNWNifffbp5X6', 'Prova', '1999-01-01', 'prova@gmail.com', 'Alicante', 'male', 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -275,6 +288,14 @@ CREATE TABLE `user_group` (
   `OID_Group` int(11) NOT NULL,
   `Name` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `user_group`
+--
+
+INSERT INTO `user_group` (`OID_Group`, `Name`) VALUES
+(2, 'AAA'),
+(3, 'AAA');
 
 --
 -- Índices para tablas volcadas
@@ -367,7 +388,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT de la tabla `group`
 --
 ALTER TABLE `group`
-  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `module`
 --
@@ -377,7 +398,7 @@ ALTER TABLE `module`
 -- AUTO_INCREMENT de la tabla `playlist`
 --
 ALTER TABLE `playlist`
-  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `OID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `timeline`
 --
