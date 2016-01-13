@@ -30,15 +30,13 @@ PRIVATE:
   //////////
  // CRIS //
 //////////
-- Encriptar contraseñas
+- Encriptar contraseñas <DONE>
 - En el buscador falta poder filtrar qué contenido quieres <DONE>
 - En el buscador mostrar un contenido inicial. <DONE>
 - Paginacion en el buscador <DONE>
 - Tambien deberiamos darle estilo al input del buscador <DONE>
-- Imagenes (Para todas las tablas)
 - Mostrar comentarios en Info cancion (comentario del timeline) <DONE>
-- FIXEAR Desplegables de comentario (si elige el último minuto se muestren los segundos necesarios, para el resto de 0 a 59)
-- Ocultar añadir comentario para usuarios no registrados
+
   /////////////
  // Cameron //
 /////////////
@@ -51,10 +49,17 @@ PRIVATE:
 ------------------------------------
 LAST MINUTE PROBLEM
 -----------------------------------
+- Mostrar en home more listened songs <DONE A FALTA DE IMGs>
+- Si el usuario no tiene playlist/grupos no mostrarlo <DONE>
+- Si el usuario no esta logued no mostrar form de comment <DONE>
+- Al añadir cancion a playlist/group, actualizar el campo de N_tracks <DONE>
 
-- Si el usuario no tiene playlist/grupos no mostrarlo
-- Si el usuario no esta logued no mostrar form de comment
-- Crear usuario "admin" que pueda ver los cruds de track y group
-- Al añadir cancion a playlist/group, actualizar el campo de N_tracks
-- Al unirse a playlist/group actualizar N_followers
-- Mostrar en home more listened songs
+- Parte privada de admin <DONE>
+- Imagenes (Para todas las tablas) <DONE>
+**********************************
+
+- FIXEAR Desplegables de comentario (si elige el último minuto se muestren los segundos necesarios, para el resto de 0 a 59)
+- Fix paginador
+
+*******************************
+
