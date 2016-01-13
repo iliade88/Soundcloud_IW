@@ -110,8 +110,10 @@
 
 		echo '<br>';
 		$username = $this->session->userdata('username');
+
 		if($username)
 		{
+			//Si tiene alguna playlist se muestra
 			$playlists = $this->Track_info_model->get_playlists($username);
 			if($playlists->num_rows() > 0)
 			{
@@ -130,6 +132,7 @@
 				echo '<br>';
 			}
 
+			//Si pertenece a algún grupo se muestra
 			$groups = $this->Track_info_model->get_groups($username);
 			if($groups->num_rows() > 0)
 			{

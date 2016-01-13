@@ -47,6 +47,7 @@ class Track_info_controller extends CI_Controller {
 		{
 			$message = "<p style='color:blue'>Track added to the playlist</p>";
 			$this->db->query("INSERT INTO playlist_tracks (OID_Playlist, OID_Track) VALUES($oidPlaylist, $oidTrack)");
+			$this->Track_info_model->update_N_Tracks_playlist($oidPlaylist);
 		}else{
 			$message = "<p style='color:blue'>Track already in the playlist</p>";
 		}
