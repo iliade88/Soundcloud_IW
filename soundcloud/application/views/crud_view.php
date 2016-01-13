@@ -42,8 +42,5 @@ a:hover
         <?php echo $output; ?>
 
     </div>
-<!-- Beginning footer -->
-<div>Footer</div>
-<!-- End of Footer -->
 </body>
 </html>

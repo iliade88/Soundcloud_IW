@@ -14,15 +14,19 @@
   ?>
 
   <h3>Most listened songs</h3>
-  <table>
-    <tr>
+  <table class="table-striped table-condensed table-hover">
       <?php
 
       for ($i=0; $i < count($moreListenedSongs) ; $i++) {
-        echo "<td><a href='/soundcloud/index.php/track_info_controller?oid={$moreListenedSongs[$i]->OID}'>".$moreListenedSongs[$i]->Name."</a></td>";
+        echo "<tr><td><img style='width: 100px; height: 100px;' src='{$moreListenedSongs[$i]->Image}'></td><td><a href='/soundcloud/index.php/track_info_controller?oid={$moreListenedSongs[$i]->OID}'>".$moreListenedSongs[$i]->Name."</a></td><td>{$moreListenedSongs[$i]->Artist}</td></tr>";
       }
       ?>
-    </tr>
   </table>
+  <script type="text/javascript">
+    //Evento para que al hacer clic en la tabla se muestre la información de dicho elemento
+    $('tr').live("click",function() {
+          window.location.href = $(this).find("a").attr("href");
+    });
+  </script>
 </body>
 </html>

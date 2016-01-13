@@ -152,7 +152,7 @@
 		}
 		?>
 	</main>
-	<?php 
+	<?php
 		if($username)
 		{
 	?>
