@@ -5,6 +5,7 @@ class Home extends CI_Controller {
   function __construct()
   {
     parent::__construct();
+    $this->load->model('Track_model');
   }
 
   function index()
@@ -15,6 +16,7 @@ class Home extends CI_Controller {
       $session_data = $this->session->userdata('logged_in');
       $data['username'] = $session_data['username'];
     }
+    $data['moreListenedSongs'] = $this->Track_model->moreListenedSongs();
     $this->load->view('home_view', $data);
   }
 

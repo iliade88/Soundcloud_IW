@@ -12,6 +12,17 @@
     echo "<h2>Welcome {{$username}} !</h2>";
   }
   ?>
-  <a href="/soundcloud/index.php/logout">Logout</a>
+
+  <h3>Most listened songs</h3>
+  <table>
+    <tr>
+      <?php
+
+      for ($i=0; $i < count($moreListenedSongs) ; $i++) {
+        echo "<td><a href='/soundcloud/index.php/track_info_controller?oid={$moreListenedSongs[$i]->OID}'>".$moreListenedSongs[$i]->Name."</a></td>";
+      }
+      ?>
+    </tr>
+  </table>
 </body>
 </html>

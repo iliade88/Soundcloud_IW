@@ -15,5 +15,12 @@
         $consulta = $this->db->get("track");
         return $consulta->result();
       }
+
+      function moreListenedSongs() //Get 10 more listened songs
+      {
+        $this->db->order_by("N_Plays", "desc")->limit(10);
+        $consulta = $this->db->get("track");
+        return $consulta->result();
+      }
   }
 ?>
