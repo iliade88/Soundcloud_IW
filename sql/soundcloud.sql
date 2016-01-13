@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-01-2016 a las 11:10:47
+-- Tiempo de generación: 13-01-2016 a las 11:15:55
 -- Versión del servidor: 10.1.8-MariaDB
 -- Versión de PHP: 5.6.14
 
@@ -110,7 +110,7 @@ CREATE TABLE `playlist` (
   `OID` int(11) NOT NULL,
   `Name` varchar(250) NOT NULL,
   `N_Followers` int(11) NOT NULL,
-  `Image` blob NOT NULL,
+  `Image` varchar(300) NOT NULL,
   `N_Tracks` int(11) NOT NULL,
   `Author` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -185,7 +185,7 @@ CREATE TABLE `track` (
   `OID` int(11) NOT NULL,
   `Name` varchar(250) NOT NULL,
   `Artist` varchar(250) NOT NULL,
-  `Image` blob NOT NULL,
+  `Image` varchar(300) NOT NULL,
   `Length` int(11) NOT NULL,
   `Uploaded` date NOT NULL,
   `Listened` tinyint(1) NOT NULL,
@@ -243,7 +243,7 @@ CREATE TABLE `user` (
   `N_Followers` int(11) NOT NULL,
   `N_Following` int(11) NOT NULL,
   `N_Tracks` int(11) NOT NULL,
-  `Image` blob NOT NULL,
+  `Image` varchar(300) NOT NULL,
   `Admin` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
