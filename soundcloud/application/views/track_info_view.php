@@ -104,42 +104,55 @@
 			</tbody>
 		</table>
 
+
 		<?php
+		//Formulario para meter canciones en playlist y grupos
+
 		echo '<br>';
 		$username = $this->session->userdata('username');
 		if($username)
 		{
 			$playlists = $this->Track_info_model->get_playlists($username);
-			echo "<form method='post' action='/soundcloud/index.php/track_info_controller/add_to_playlist/'>";
-
-			echo "<input type='hidden' name='oidTrack' value='$res->OID'>";
-			echo '<select name ="oidPlaylist">';
-			foreach($playlists->result() as $row)
+			if($playlists->num_rows() > 0)
 			{
-				echo "<option value='$row->OID'>$row->Name</option>";
+				echo "<form method='post' action='/soundcloud/index.php/track_info_controller/add_to_playlist/'>";
+
+				echo "<input type='hidden' name='oidTrack' value='$res->OID'>";
+				echo '<select name ="oidPlaylist">';
+				foreach($playlists->result() as $row)
+				{
+					echo "<option value='$row->OID'>$row->Name</option>";
+				}
+				echo '</select>';
+				echo "<input type='submit' value='Añadir canción a playlist'>";
+				echo '<br>';
+				echo '</form>';
+				echo '<br>';
 			}
-			echo '</select>';
-			echo "<input type='submit' value='Añadir canción a playlist'>";
-			echo '<br>';
-			echo '</form>';
-			echo '<br>';
 
 			$groups = $this->Track_info_model->get_groups($username);
-			echo "<form method='post' action='/soundcloud/index.php/track_info_controller/add_to_group/'>";
-
-			echo "<input type='hidden' name='oidTrack' value='$res->OID'>";
-			echo '<select name ="oidGroup">';
-			foreach($groups->result() as $row)
+			if($groups->num_rows() > 0)
 			{
-				echo "<option value='$row->OID'>$row->Group_Name</option>";
+				echo "<form method='post' action='/soundcloud/index.php/track_info_controller/add_to_group/'>";
+
+				echo "<input type='hidden' name='oidTrack' value='$res->OID'>";
+				echo '<select name ="oidGroup">';
+				foreach($groups->result() as $row)
+				{
+					echo "<option value='$row->OID'>$row->Group_Name</option>";
+				}
+				echo '</select>';
+				echo "<input type='submit' value='Añadir canción a grupo'>";
+				echo '<br>';
+				echo '</form>';
 			}
-			echo '</select>';
-			echo "<input type='submit' value='Añadir canción a grupo'>";
-			echo '<br>';
-			echo '</form>';
 		}
 		?>
 	</main>
+	<?php 
+		if($username)
+		{
+	?>
 	<form class="form-inline" action="/soundcloud/index.php/track/write_comment" method="POST">
 		<fieldset>
 			<legend> Write a comment: </legend>
@@ -181,6 +194,9 @@
 			<input type= "submit" class= "btn-primary" value ="Send">
 		</fieldset>
 	</form>
+	<?php
+		}
+	?>
 
 </body>
 </html>

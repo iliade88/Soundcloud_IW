@@ -8,7 +8,6 @@ class User_info_controller extends CI_Controller {
 
 		$this->load->database();
 		
-		//$this->load->helper('url');
 	}
 
 	public function index()

@@ -44,13 +44,13 @@
     		$query = $this->db->query("SELECT * FROM user_group WHERE OID_Group = " . $res->OID . " AND Name = '$username'");
 			if($query->num_rows() > 0)
 			{
-				echo 'Usted ya está unido a este grupo, para salir pulse ';
-				echo "<a href='/soundcloud/index.php/group_info_controller/del_user_from_group/" . $res->OID . "' > aqui</a>";
+				echo 'You are already in this group, if you want to exit press ';
+				echo "<a href='/soundcloud/index.php/group_info_controller/del_user_from_group/" . $res->OID . "' > here</a>";
 	
 			}else
 			{
-				echo 'No está unido a este grupo, unase ';
-				echo "<a href='/soundcloud/index.php/group_info_controller/add_user_to_group/" . $res->OID . "' > aqui</a>";
+				echo 'You are not in this group, if you want to join press  ';
+				echo "<a href='/soundcloud/index.php/group_info_controller/add_user_to_group/" . $res->OID . "' > here</a>";
 			}
 		}
 

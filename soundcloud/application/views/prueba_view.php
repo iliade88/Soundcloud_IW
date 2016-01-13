@@ -10,7 +10,9 @@
 <?php require_once('menu.php'); ?>
 <main>
 <?php
-	echo $this->session->userdata('username');
+	echo $pass;
+	echo '<br>';
+	echo $salt;
 ?>
 </main>
 

@@ -42,7 +42,8 @@ class Login_controller extends CI_Controller {
   		$query = $this->db->query("SELECT Password FROM user WHERE User_Name = '$username'");
   		if($query->num_rows >0){
 	  		$res = $query->row();
-	  		if($res->Password == $pass){ $valid = true;}
+	  		//if($res->Password == $pass){ $valid = true;}
+        $valid = $this->verifyPass($pass, $res->Password);
   		}
 
 
@@ -52,6 +53,16 @@ class Login_controller extends CI_Controller {
   		echo '<p style="color:red">Incorrect username or password</p>';
   	}
   	return $valid;
+  }
+
+  function verifyPass($passInput, $pass)
+  {
+    if(hash_equals($pass, crypt($passInput, $pass)))
+    {
+      return true;
+    }else{
+      return false;
+    }
   }
 }
 
