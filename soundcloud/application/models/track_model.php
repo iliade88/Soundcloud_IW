@@ -9,9 +9,9 @@
         $this->load->database();
       }
 
-      function search($valor)
+      function search($valor, $pag)
       {
-        $this->db->like("Name", $valor);
+        $this->db->like("Name", $valor)->limit(10, $pag*10);
         $consulta = $this->db->get("track");
         return $consulta->result();
       }

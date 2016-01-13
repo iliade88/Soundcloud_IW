@@ -31,7 +31,9 @@ PRIVATE:
  // CRIS //
 //////////
 - Encriptar contraseñas
-- En el buscador falta poder filtrar qué contenido quieres, y mostrar un contenido inicial. Tambien deberiamos darle estilo al input buscador
+- En el buscador falta poder filtrar qué contenido quieres <DONE>
+- En el buscador mostrar un contenido inicial. 
+- Tambien deberiamos darle estilo al input del buscador
 - Imagenes (Para todas las tablas)
 - Mostrar comentarios en Info cancion (comentario del timeline)
 - FIXEAR Desplegables de comentario (si elige el último minuto se muestren los segundos necesarios, para el resto de 0 a 59)

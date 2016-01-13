@@ -22,7 +22,8 @@ class Search extends CI_Controller {
   public function buscarTrack(){
     if($this->input->is_ajax_request()){
       $buscar = $this->input->post("buscar");
-      $datos = $this->Track_model->search($buscar);
+      $pag = $this->input->post("pag");
+      $datos = $this->Track_model->search($buscar, $pag);
       echo json_encode($datos);
     }
   }
@@ -30,7 +31,8 @@ class Search extends CI_Controller {
   public function buscarPlaylist(){
     if($this->input->is_ajax_request()){
       $buscar = $this->input->post("buscar");
-      $datos = $this->Playlists->search($buscar);
+      $pag = $this->input->post("pag");
+      $datos = $this->Playlists->search($buscar, $pag);
       echo json_encode($datos);
     }
   }
@@ -38,7 +40,8 @@ class Search extends CI_Controller {
   public function buscarGroup(){
     if($this->input->is_ajax_request()){
       $buscar = $this->input->post("buscar");
-      $datos = $this->Groups->search($buscar);
+      $pag = $this->input->post("pag");
+      $datos = $this->Groups->search($buscar, $pag);
       echo json_encode($datos);
     }
   }
@@ -46,7 +49,8 @@ class Search extends CI_Controller {
   public function buscarUsers(){
     if($this->input->is_ajax_request()){
       $buscar = $this->input->post("buscar");
-      $datos = $this->Users->search($buscar);
+      $pag = $this->input->post("pag");
+      $datos = $this->Users->search($buscar, $pag);
       echo json_encode($datos);
     }
   }

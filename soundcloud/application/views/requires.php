@@ -1,3 +1,6 @@
+<title>Soundcloud</title>
+<link rel="shortcut icon" href="/soundcloud/assets/img/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/soundcloud/assets/img/favicon.ico" type="image/x-icon">
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <!-- Latest compiled and minified CSS -->

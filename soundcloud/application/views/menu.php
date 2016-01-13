@@ -14,23 +14,21 @@
     <ul class="nav navbar-nav">
       <li><a href="/soundcloud/index.php/search">Search</a></li>
       <?php
-          if($this->session->userdata("username"))
-          {?>
-          <?php echo ($this->session->userdata("username")); ?>
-            <li><a href="/soundcloud/index.php/logout">Logout</a></li>
-            <li><a href="/soundcloud/index.php/user_info_controller?oid=<?php echo ($this->session->userdata('OID')); ?>"><?php echo ($this->session->userdata("username")); ?></a></li>
-            <?php
-            }
-          else
-            {
-              ?>
-                <li><a href="/soundcloud/index.php/login_controller">Login</a></li>
-              <?php 
-            } 
-              ?>
+      if($this->session->userdata("username"))
+      {?>
+        <?php echo ($this->session->userdata("username")); ?>
+        <li><a href="/soundcloud/index.php/logout">Logout</a></li>
+        <li><a href="/soundcloud/index.php/user_info_controller?oid=<?php echo ($this->session->userdata('OID')); ?>"><?php echo ($this->session->userdata("username")); ?></a></li>
+        <?php
+      }
+      else
+      {
+        ?>
+        <li><a href="/soundcloud/index.php/login_controller">Login</a></li>
+        <?php
+      }
+      ?>
     </ul>
   </div>
 </div>
 </nav>
-
-    
